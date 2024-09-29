@@ -1,0 +1,35 @@
+﻿@model Assignment1_FAST.Models.AllEquipment
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Equipment</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="text-center p-2">
+        <h2 class="text-center">
+            Here is the list of All Equipment
+        </h2>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr><th>Id</th><th>Type</th><th>Description</th><th>Availability</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var equipment in Model.EquipmentList)
+                    {
+                   <tr>
+                       <td>@equipment.Id</td>
+                       <td>@equipment.Type</td>
+                       <td>@equipment.Description</td>
+                       <td>@(equipment.IsAvailable ? "Available" : "Unavailable")</td>
+                   </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
