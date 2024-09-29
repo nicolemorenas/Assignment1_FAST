@@ -12,8 +12,7 @@ namespace Assignment1_FAST.Models
         Student, Professor
     }
 
-    public class RequestResponse
-    {
+    public class RequestResponse{
         [Required(ErrorMessage = "Please enter your name")]
         public string? Name { get; set; }
         [Required(ErrorMessage = "Please enter your email address")]
@@ -28,15 +27,8 @@ namespace Assignment1_FAST.Models
         [Required(ErrorMessage = "Please enter request details")]
         public string? RequestDetails { get; set; }
         [Required(ErrorMessage = "Please enter duration")]
-
         public int? Duration { get; set; }
-
         public int Id { get; set; }
-
-
-
-
-
 
     }
 }

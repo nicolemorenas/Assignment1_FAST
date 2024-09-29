@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Assignment1_FAST.Models;
 
-
-
-
 namespace Assignment1_FAST.Controllers;
 
 public class HomeController : Controller
@@ -49,6 +46,13 @@ public class HomeController : Controller
 
         return View(availableEquipment);
     }
+
+    public ViewResult Requests()
+    {
+        var requests = Repository.Requests;
+        return View(requests);
+    }
+
 
 
 }

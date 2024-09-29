@@ -7,9 +7,49 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>All Equipment</title>
+    <style>
+
+        nav {
+            background-color: #3b2d58;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        .container {
+            margin: 15px;
+        }
+
+        .navmenu {
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            text-decoration: none;
+            list-style-type: none;
+            font-size: x-large;
+        }
+
+            .navmenu a {
+                color: white;
+                text-decoration: none;
+            }
+    </style>
+
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
+    <div class="container">
+        <nav>
+            <ul class="navmenu">
+                <li><a href="/">Home</a></li>
+                <li><a asp-action="AllEquipment"> All Equipment Listing</a></li>
+                <li><a asp-action="AvailableEquipment">Available Equipment</a></li>
+                <li><a asp-action="RequestForm"> Request Form</a></li>
+
+            </ul>
+        </nav>
+
+    </div>
+
     <div class="text-center p-2">
         <h2 class="text-center">
             Here is the list of All Equipment
@@ -20,14 +60,14 @@
             </thead>
             <tbody>
                 @foreach (var equipment in Model.EquipmentList)
-                    {
-                   <tr>
-                       <td>@equipment.Id</td>
-                       <td>@equipment.Type</td>
-                       <td>@equipment.Description</td>
-                       <td>@(equipment.IsAvailable ? "Available" : "Unavailable")</td>
-                   </tr>
-                    }
+                {
+                    <tr>
+                        <td>@equipment.Id</td>
+                        <td>@equipment.Type</td>
+                        <td>@equipment.Description</td>
+                        <td>@(equipment.IsAvailable ? "Available" : "Unavailable")</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

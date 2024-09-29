@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Assignment1_FAST.Models
 {
-	public class Repository
+	public static class Repository
 	{
 
         private static List<RequestResponse> requests = new List<RequestResponse>();

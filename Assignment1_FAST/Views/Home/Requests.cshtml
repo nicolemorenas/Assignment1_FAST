@@ -1,13 +1,10 @@
-﻿
-@model IEnumerable<Assignment1_FAST.Models.AllEquipment.Equipment>
-@{
-    Layout = null;
-}
+﻿@model IEnumerable<Assignment1_FAST.Models.RequestResponse>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Available Equipment</title>
+    <title>Requests</title>
     <style>
 
         nav {
@@ -54,26 +51,30 @@
 
     <div class="text-center p-2">
         <h2 class="text-center">
-            Available Equipment Listing
+            List of Requests made for IT Equipment
         </h2>
         <table class="table table-bordered table-striped table-sm">
             <thead>
-                <tr><th>Id</th><th>Type</th><th>Description</th><th>Availability</th></tr>
+                <tr><th>Equipment Type</th><th>Name</th><th>Role</th><th>Status</th></tr>
             </thead>
             <tbody>
-                @foreach (var equipment in Model)
+                @foreach (var request in Model)
                 {
                     <tr>
-                        <td>@equipment.Id</td>
-                        <td>@equipment.Type</td>
-                        <td>@equipment.Description</td>
-                        <td>@(equipment.IsAvailable ? "Available" : "Unavailable")</td>
+                        <td>@request.EquipmentType</td>
+                        <td>@request.Name</td>
+                        <td>@request.Role</td>
+                        <td>
+                            <button type="button">ACCEPT</button>
+                            <button type="button">DENY</button>
+
+                        </td>
                     </tr>
+
                 }
             </tbody>
         </table>
     </div>
 </body>
 </html>
-
 
