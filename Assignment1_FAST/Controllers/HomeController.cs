@@ -11,6 +11,27 @@ public class HomeController : Controller
         return View();
 
     }
+
+    [HttpGet]
+    public ViewResult RequestForm()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public ViewResult RequestForm(RequestResponse requestResponse)
+    {
+        if (ModelState.IsValid)
+        {
+        Repository.AddRequest(requestResponse);
+        return View("Confirmation", requestResponse);
+        } else
+        {
+            return View();
+        }
+       
+    }
+
 }
 
 

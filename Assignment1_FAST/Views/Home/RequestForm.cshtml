@@ -1,0 +1,50 @@
+﻿@model Assignment1_FAST.Models.RequestResponse
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Request Form</title>
+</head>
+<body>
+    <form asp-action="RequestForm" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Name">Your name:</label>
+            <input asp-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Email">Your email:</label>
+            <input asp-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Phone">Your phone:</label>
+            <input asp-for="Phone" />
+        </div>
+        <div>
+            <label asp-for="Role">Role: </label>
+            <select asp-for="Role" asp-items="Html.GetEnumSelectList<Assignment1_FAST.Models.Role>()">
+                <option selected="selected" value="">Please select your role</option>
+            </select>
+        </div>
+        <div>
+            <label asp-for="EquipmentType">Equipment Type:</label>
+            <select asp-for="EquipmentType" asp-items="Html.GetEnumSelectList<Assignment1_FAST.Models.EquipmentType>()">
+                <option selected="selected" value="">Please select equipment type</option>
+            </select>
+        </div>
+        <div>
+            <label asp-for="RequestDetails">Request Details:</label>
+            <input asp-for="RequestDetails" />
+        </div>
+        <div>
+            <label asp-for="Duration">Duration (number of days):</label>
+            <input asp-for="Duration" />
+        </div>
+        <button type="submit">Submit Request</button>
+
+    </form>
+</body>
+</html>
