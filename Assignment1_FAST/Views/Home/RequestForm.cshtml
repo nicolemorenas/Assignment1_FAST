@@ -1,56 +1,10 @@
 ﻿@model Assignment1_FAST.Models.RequestResponse
 @{
-    Layout = null;
+    ViewData["Title"] = "Request Form";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Request Form</title>
-    <style>
 
-        nav {
-            background-color: #3b2d58;
-            border-radius: 5px;
-            padding: 10px 15px;
-        }
+<div>
 
-        .container {
-            margin: 15px;
-        }
-
-        .navmenu {
-            padding: 0;
-            display: flex;
-            gap: 20px;
-            text-decoration: none;
-            list-style-type: none;
-            font-size: x-large;
-        }
-
-            .navmenu a {
-                color: white;
-                text-decoration: none;
-            }
-    </style>
-
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-
-</head>
-<body>
-    <div class="container">
-        <nav>
-            <ul class="navmenu">
-                <li><a href="/">Home</a></li>
-                <li><a asp-action="AllEquipment"> All Equipment Listing</a></li>
-                <li><a asp-action="AvailableEquipment">Available Equipment</a></li>
-                <li><a asp-action="RequestForm"> Request Form</a></li>
-
-
-            </ul>
-        </nav>
-
-    </div>
 
     <form asp-action="RequestForm" method="post">
         <div asp-validation-summary="All"></div>
@@ -68,13 +22,13 @@
         </div>
         <div>
             <label asp-for="Role">Role: </label>
-            <select asp-for="Role" asp-items="Html.GetEnumSelectList<Assignment1_FAST.Models.Role>()">
+            <select asp-for="Role" asp-items="Html.GetEnumSelectList<Role>()">
                 <option selected="selected" value="">Please select your role</option>
             </select>
         </div>
         <div>
             <label asp-for="EquipmentType">Equipment Type:</label>
-            <select asp-for="EquipmentType" asp-items="Html.GetEnumSelectList<Assignment1_FAST.Models.EquipmentType>()">
+            <select asp-for="EquipmentType" asp-items="Html.GetEnumSelectList<EquipmentType>()">
                 <option selected="selected" value="">Please select equipment type</option>
             </select>
         </div>
@@ -89,5 +43,4 @@
         <button type="submit">Submit Request</button>
 
     </form>
-</body>
-</html>
+</div>
